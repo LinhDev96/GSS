@@ -1,0 +1,9 @@
+<p>login-status works!</p>
+<div class="container">
+  <div *ngIf="isAuthenticated && userFullName" class="welcome-message">
+      Wellcome back {{ userFullName }}!
+  </div>
+
+  <button *ngIf="!isAuthenticated" class="login-button">Login</button>
+  <button *ngIf="isAuthenticated" (click)="logout()" class="logout-button">logout</button>
+</div>

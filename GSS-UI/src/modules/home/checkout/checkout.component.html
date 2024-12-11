@@ -1,0 +1,65 @@
+<!-- <p>checkout works!</p> -->
+<!-- checkout.component.html -->
+<form [formGroup]="checkoutForm" (ngSubmit)="onSubmit()">
+  <div formGroupName="customer">
+    <div>
+      <label for="name">Name</label>
+      <input
+        id="name" formControlName="name" type="text"
+        [ngStyle]="{'border-color': checkoutForm.get('customer.name')?.invalid && checkoutForm.get('customer.name')?.touched ? 'red' : ''}"
+        />
+      <div *ngIf="checkoutForm.get('customer.name')?.invalid && checkoutForm.get('customer.name')?.touched">
+        <small *ngIf="checkoutForm.get('customer.name')?.errors?.['required']">Name is
+          required.</small>
+        <small *ngIf="checkoutForm.get('customer.name')?.errors?.['minlength']">Name must
+          be at least 3 characters.</small>
+      </div>
+    </div>
+    <!-- [class.invalid]="checkoutForm.get('customer.name')?.invalid || checkoutForm.get('customer.name')?.touched" -->
+    <div>
+      <label for="email">Email</label>
+      <input
+        id="email" formControlName="email" type="email"
+        [ngStyle]="{'border-color': checkoutForm.get('customer.email')?.invalid && checkoutForm.get('customer.email')?.touched ? 'red' : ''}"
+        />
+      <div
+        *ngIf="checkoutForm.get('customer.email')?.invalid && checkoutForm.get('customer.email')?.touched">
+        <small *ngIf="checkoutForm.get('customer.email')?.errors?.['required']">Email is
+          required.</small>
+        <small *ngIf="checkoutForm.get('customer.email')?.errors?.['email']">Email is
+          invalid.</small>
+      </div>
+    </div>
+
+    <div>
+      <label for="address">Address</label>
+      <input
+        id="address" formControlName="address" type="text"
+        [ngStyle]="{'border-color': checkoutForm.get('customer.address')?.invalid && checkoutForm.get('customer.address')?.touched ? 'red' : ''}"
+        />
+      <div
+        *ngIf="checkoutForm.get('customer.address')?.invalid && checkoutForm.get('customer.address')?.touched">
+        <small *ngIf="checkoutForm.get('customer.address')?.errors?.['required']">Address
+          is required.</small>
+      </div>
+    </div>
+
+    <div>
+      <label for="phone">Phone</label>
+      <input
+        id="phone" formControlName="phone" type="text"
+        [ngStyle]="{'border-color': checkoutForm.get('customer.phone')?.invalid && checkoutForm.get('customer.phone')?.touched ? 'red' : ''}"
+        />
+      <div
+        *ngIf="checkoutForm.get('customer.phone')?.invalid && checkoutForm.get('customer.phone')?.touched">
+        <small *ngIf="checkoutForm.get('customer.phone')?.errors?.['required']">Phone
+          number is required.</small>
+        <small *ngIf="checkoutForm.get('customer.phone')?.errors?.['pattern']">Phone
+          number is invalid.</small>
+      </div>
+    </div>
+  </div>
+
+  <!-- <button type="submit" [disabled]="checkoutForm.invalid">Submit</button> -->
+  <button type="submit">Submit</button>
+</form>

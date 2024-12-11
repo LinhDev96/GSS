@@ -1,0 +1,12 @@
+  <div class="bg-white p-6 rounded shadow-lg" style="width: 75vw; height: 75vh;">
+    <h2 class="text-xl font-bold mb-4">Detail Information</h2>
+    <!-- <p>Thông tin chi tiết ở đây...</p> -->
+    <app-carousel> </app-carousel>
+  </div>
+  <div class="flex justify-center">
+      <button (click)="addToCart()" class="bg-green-500 text-white px-4 py-2 rounded">
+        Add to Cart
+        <i class="fa-solid fa-cart-plus"></i>
+      </button>
+      <button (click)="closeDetailDialog()" class="bg-blue-500 text-white px-4 py-2 rounded">Close</button>
+  </div>
