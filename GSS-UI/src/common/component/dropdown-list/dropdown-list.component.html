@@ -1,0 +1,12 @@
+<div class="menu-item">
+  <span (click)="toggleDropdown(item, $event)">{{ item.name }}</span>
+  <ng-container *ngIf="item.isOpen && item.children?.length">
+    <app-dropdown-list
+      *ngFor="let child of item.children"
+      [item]="child"
+      [path]="path.concat(item.name)"
+      (itemClicked)="itemClicked.emit($event)"
+    ></app-dropdown-list>
+  </ng-container>
+</div>
+

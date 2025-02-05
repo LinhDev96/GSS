@@ -1,0 +1,8 @@
+<div class="w-full flex">
+  <div [ngClass]="{ hidden: isLeftBarHidden }" class="w-1/5">
+    <router-outlet name="leftBar"></router-outlet>
+  </div>
+  <div [ngClass]="{ 'w-full': isLeftBarHidden }" class="w-4/5">
+    <router-outlet name="primary"></router-outlet>
+  </div>
+</div>

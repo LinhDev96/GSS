@@ -1,0 +1,121 @@
+/* Global Styles */
+body {
+  font-family: Arial, sans-serif;
+  background-color: #f9f9f9;
+  padding: 20px;
+}
+
+.w-full {
+  width: 100%;
+}
+
+.p-2 {
+  padding: 20px;
+}
+
+/* Table Styles */
+table {
+  width: 100%;
+  border-collapse: collapse;
+  background-color: #fff;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  margin-bottom: 20px;
+}
+
+th, td {
+  padding: 10px;
+  text-align: left;
+  border-bottom: 1px solid #ddd;
+}
+
+th {
+  background-color: #f2f2f2;
+  font-weight: bold;
+}
+
+td {
+  color: #333;
+}
+
+/* Material Elevation */
+.mat-elevation-z8 {
+  box-shadow: 0px 8px 10px -5px rgba(0, 0, 0, 0.2), 0px 16px 24px 2px rgba(0, 0, 0, 0.14),
+              0px 6px 30px 5px rgba(0, 0, 0, 0.12);
+}
+
+/* Cart Items */
+.cart-item {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 10px;
+}
+
+.cart-item p {
+  margin: 0;
+  font-size: 16px;
+}
+
+button {
+  background-color: #6b46c1;
+  color: white;
+  padding: 5px 10px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+button:hover {
+  background-color: #5a3fb0;
+}
+
+button:disabled {
+  background-color: #ccc;
+  cursor: not-allowed;
+}
+
+/* Empty Cart Message */
+p {
+  color: #666;
+  font-size: 16px;
+}
+
+/* Clear Cart Button */
+.clear-cart {
+  margin-top: 20px;
+  background-color: #d9534f;
+  padding: 10px 15px;
+}
+
+.clear-cart:hover {
+  background-color: #c9302c;
+}
+
+/* hiden spin buttons */
+input[type="number"]::-webkit-inner-spin-button,
+input[type="number"]::-webkit-outer-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+
+/* Đặt độ rộng cố định cho cột totalPrice */
+.total-price-column {
+  width: 150px; /* Điều chỉnh giá trị tùy nhu cầu */
+}
+
+.fixed-width {
+  width: 150px; /* Đặt kích thước cố định */
+  max-width: 150px; /* Giới hạn kích thước tối đa */
+  overflow: hidden; /* Ẩn nội dung tràn */
+  text-overflow: ellipsis; /* Hiển thị dấu "..." nếu nội dung quá dài */
+  white-space: nowrap; /* Không cho xuống dòng */
+}
+
+.empty-row {
+  color: rgb(248, 14, 14);
+  font-style: italic;
+  text-align: center;
+}
+
+.fa-trash{
+  cursor: pointer;
+}

@@ -1,0 +1,35 @@
+.menu-item {
+  margin-left: 20px;
+  cursor: pointer;
+  color: #333;
+  user-select: none;
+}
+.menu-item:hover {
+  color: #f7941d;
+}
+.menu-item > span::before {
+  content: ">";
+  margin-right: 8px;
+  display: inline-block;
+  transition: transform 0.2s ease;
+}
+.menu-item > .nested {
+  display: none;
+  margin-left: 20px;
+}
+.menu-item:hover > .nested {
+  display: block;
+}
+.menu-item:hover > span::before {
+  transform: rotate(90deg);
+}
+.menu-item span {
+  display: inline-block;
+  background: #f8f9fa;
+  padding: 8px;
+  border-radius: 4px;
+  transition: background 0.2s ease;
+}
+.menu-item span:hover {
+  background: #e2e6ea;
+}

@@ -1,0 +1,75 @@
+{
+  "name": "Categories",
+  "children": [
+    {
+      "name": "3D Printers",
+      "children": [
+        {
+          "name": "3D model design",
+          "children": [
+            {
+              "name": "quadcopter",
+              "children": []
+            },
+            {
+              "name": "drone",
+              "children": []
+            }
+          ]
+        },
+        {
+          "name": "3D printer machine",
+          "children": []
+        }
+      ]
+    },
+    {
+      "name": "3D sculpture",
+      "children": [
+        {
+          "name": "Vehicle",
+          "children": []
+        },
+        {
+          "name": "Plane",
+          "children": [
+            {
+              "name": "Sukhoi",
+              "children": []
+            },
+            {
+              "name": "Lockheed Martin",
+              "children": []
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "2D art",
+      "children": [
+        {
+          "name": "Lanscape",
+          "children": []
+        },
+        {
+          "name": "Portrait",
+          "children": [
+            {
+              "name": "Mona Lisa",
+              "children": []
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "2D drawing machine",
+      "children": []
+    },
+    {
+      "name": "Digital painting",
+      "children": []
+    }
+  ]
+}

@@ -1,0 +1,40 @@
+/* To learn more about this file see: https://angular.io/config/tsconfig. */
+{
+  "compileOnSave": false,//re-build whenever the src code change
+  "compilerOptions": {
+    "outDir": "./dist/out-tsc",
+    "forceConsistentCasingInFileNames": true,
+    "strict": true,
+    "noImplicitOverride": true,
+    "noPropertyAccessFromIndexSignature": true,
+    "noImplicitReturns": true,
+    "noFallthroughCasesInSwitch": true,
+    "skipLibCheck": true,
+    "esModuleInterop": true,
+    "sourceMap": true,
+    "declaration": false,
+    "experimentalDecorators": true,
+    "moduleResolution": "node",
+    "importHelpers": true,
+    "target": "ES2022",//Xác định phiên bản JavaScript (ECMAScript) mà TypeScript sẽ biên dịch mã của bạn xuống
+    "module": "ES2022",//Quy định định dạng module trong JavaScript đầu ra.
+    "resolveJsonModule": true,//bật tính năng này để import file JSON
+    "useDefineForClassFields": false,
+    "strictPropertyInitialization": false,// làm giảm độ an toàn của TypeScript.
+    "lib": [
+      "ES2022",
+      "dom"
+    ],
+    "allowSyntheticDefaultImports": true,
+    "baseUrl": "./",
+    "paths": {
+      "@config/*": ["src/app/core/config/*"]
+    }
+  },
+  "angularCompilerOptions": {
+    "enableI18nLegacyMessageIdFormat": false,
+    "strictInjectionParameters": true,
+    "strictInputAccessModifiers": true,
+    "strictTemplates": true
+  }
+}

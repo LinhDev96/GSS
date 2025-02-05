@@ -1,0 +1,19 @@
+<div class="relative w-2/3 overflow-hidden">
+  <div class="flex transition-transform duration-500" [style.transform]="getTransform()">
+    <div *ngFor="let image of images" class="w-full flex-shrink-0">
+      <img [src]="image" class="w-full h-auto">
+    </div>
+  </div>
+  <button (click)="prevSlide()" class="absolute top-1/2 left-0 transform -translate-y-1/2 bg-gray-800 text-white p-2">
+    <!-- Prev -->
+    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"></path>
+    </svg>
+  </button>
+  <button (click)="nextSlide()" class="absolute top-1/2 right-0 transform -translate-y-1/2 bg-gray-800 text-white p-2">
+    <!-- Next -->
+    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
+    </svg>
+  </button>
+</div>

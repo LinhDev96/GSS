@@ -1,0 +1,382 @@
+<form [formGroup]="checkoutForm" (ngSubmit)="onSubmit()">
+  <div formGroupName="customer" class="form-area">
+    <h3>Customer</h3>
+    <div>
+      <label for="name">First Name</label>
+      <input
+        id="name" formControlName="name" type="text"
+        [ngStyle]="{'border-color': checkoutForm.get('customer.name')?.invalid && checkoutForm.get('customer.name')?.touched ? 'red' : ''}"
+        />
+      <div *ngIf="checkoutForm.get('customer.name')?.invalid && checkoutForm.get('customer.name')?.touched">
+        <small *ngIf="checkoutForm.get('customer.name')?.errors?.['required']">Name is
+          required.</small>
+        <small *ngIf="checkoutForm.get('customer.name')?.errors?.['minlength']">Name must
+          be at least 3 characters.</small>
+      </div>
+    </div>
+
+    <div>
+      <label for="name">Last Name</label>
+      <input
+        id="name" formControlName="name" type="text"
+        [ngStyle]="{'border-color': checkoutForm.get('customer.name')?.invalid && checkoutForm.get('customer.name')?.touched ? 'red' : ''}"
+        />
+      <div *ngIf="checkoutForm.get('customer.name')?.invalid && checkoutForm.get('customer.name')?.touched">
+        <small *ngIf="checkoutForm.get('customer.name')?.errors?.['required']">Name is
+          required.</small>
+        <small *ngIf="checkoutForm.get('customer.name')?.errors?.['minlength']">Name must
+          be at least 3 characters.</small>
+      </div>
+    </div>
+
+    <div>
+      <label for="name">Email</label>
+      <input
+        id="name" formControlName="name" type="text"
+        [ngStyle]="{'border-color': checkoutForm.get('customer.name')?.invalid && checkoutForm.get('customer.name')?.touched ? 'red' : ''}"
+        />
+      <div *ngIf="checkoutForm.get('customer.name')?.invalid && checkoutForm.get('customer.name')?.touched">
+        <small *ngIf="checkoutForm.get('customer.name')?.errors?.['required']">Name is
+          required.</small>
+        <small *ngIf="checkoutForm.get('customer.name')?.errors?.['minlength']">Name must
+          be at least 3 characters.</small>
+      </div>
+    </div>
+
+    <!-- <div class="row">
+      <div class="col-md-2"> <label>First Name</label></div>
+      <div class="col-md-9">
+          <div class="input-space">
+              <input formControlName="firstName" type="text">
+
+              <div *ngIf="checkoutForm.get('customer.firstName')?.invalid" class="alert alert-danger mt-1">
+
+                  <div *ngIf="checkoutForm.get('customer.firstName')?.errors?.['required'] ">
+                      First Name is required
+                  </div>
+
+                  <div *ngIf="checkoutForm.get('customer.firstName')?.errors?.['minlength']">
+                      First Name must be at least 2 characters long
+                  </div>
+
+              </div>
+          </div>
+      </div>
+  </div> -->
+
+  <!-- <div class="row">
+      <div class="col-md-2"> <label>Last Name</label></div>
+      <div class="col-md-9">
+          <div class="input-space">
+              <input formControlName="lastName" type="text">
+
+              <div *ngIf="checkoutForm.get('customer.lastName')?.invalid" class="alert alert-danger mt-1">
+
+                  <div *ngIf="checkoutForm.get('customer.lastName')?.errors?.['required'] ">
+                      Last Name is required
+                  </div>
+
+                  <div *ngIf="checkoutForm.get('customer.lastName')?.errors?.['minlength']">
+                      Last Name must be at least 2 characters long
+                  </div>
+
+              </div>
+
+          </div>
+      </div>
+  </div> -->
+    <!-- [class.invalid]="checkoutForm.get('customer.name')?.invalid || checkoutForm.get('customer.name')?.touched" -->
+
+    <div>
+      <label for="address">Address</label>
+      <input
+        id="address" formControlName="address" type="text"
+        [ngStyle]="{'border-color': checkoutForm.get('customer.address')?.invalid && checkoutForm.get('customer.address')?.touched ? 'red' : ''}"
+        />
+      <div
+        *ngIf="checkoutForm.get('customer.address')?.invalid && checkoutForm.get('customer.address')?.touched">
+        <small *ngIf="checkoutForm.get('customer.address')?.errors?.['required']">Address
+          is required.</small>
+      </div>
+    </div>
+
+    <div>
+      <label for="phone">Phone</label>
+      <input
+        id="phone" formControlName="phone" type="text"
+        [ngStyle]="{'border-color': checkoutForm.get('customer.phone')?.invalid && checkoutForm.get('customer.phone')?.touched ? 'red' : ''}"
+        />
+      <div
+        *ngIf="checkoutForm.get('customer.phone')?.invalid && checkoutForm.get('customer.phone')?.touched">
+        <small *ngIf="checkoutForm.get('customer.phone')?.errors?.['required']">Phone
+          number is required.</small>
+        <small *ngIf="checkoutForm.get('customer.phone')?.errors?.['pattern']">Phone
+          number is invalid.</small>
+      </div>
+    </div>
+  </div>
+
+  <div formGroupName="shippingAddress" class="form-area">
+    <h3>Shipping Address</h3>
+    <div class="row">
+      <div class="col-md-2"> <label>Country</label></div>
+      <div class="col-md-9">
+          <div class="input-space">
+              <select formControlName="country" (change)="getStates('shippingAddress')">
+                  <option *ngFor="let country of countries" [ngValue]="country">
+                      {{ country.name }}
+                  </option>
+              </select>
+
+              <div *ngIf="checkoutForm.get('shippingAddress.country')?.invalid && (checkoutForm.get('shippingAddress.country')?.dirty || checkoutForm.get('shippingAddress.country')?.touched)" class="alert alert-danger mt-1">
+                  <div *ngIf="checkoutForm.get('shippingAddress.country')?.errors?.['required']">
+                      Country is required
+                  </div>
+              </div>
+
+          </div>
+      </div>
+  </div>
+
+    <div>
+      <label for="name">Street</label>
+      <input
+        id="name" formControlName="name" type="text"
+        [ngStyle]="{'border-color': checkoutForm.get('customer.name')?.invalid && checkoutForm.get('customer.name')?.touched ? 'red' : ''}"
+        />
+      <div *ngIf="checkoutForm.get('customer.name')?.invalid && checkoutForm.get('customer.name')?.touched">
+        <small *ngIf="checkoutForm.get('customer.name')?.errors?.['required']">Name is
+          required.</small>
+        <small *ngIf="checkoutForm.get('customer.name')?.errors?.['minlength']">Name must
+          be at least 3 characters.</small>
+      </div>
+    </div>
+
+    <div>
+      <label for="name">City</label>
+      <input
+        id="name" formControlName="name" type="text"
+        [ngStyle]="{'border-color': checkoutForm.get('customer.name')?.invalid && checkoutForm.get('customer.name')?.touched ? 'red' : ''}"
+        />
+      <div *ngIf="checkoutForm.get('customer.name')?.invalid && checkoutForm.get('customer.name')?.touched">
+        <small *ngIf="checkoutForm.get('customer.name')?.errors?.['required']">Name is
+          required.</small>
+        <small *ngIf="checkoutForm.get('customer.name')?.errors?.['minlength']">Name must
+          be at least 3 characters.</small>
+      </div>
+    </div>
+
+
+  <div class="row">
+    <div class="col-md-2"> <label>State</label></div>
+    <div class="col-md-9">
+        <div class="input-space">
+            <select formControlName="state">
+                <option *ngFor="let state of shippingAddressStates" [ngValue]="state">
+                    {{ state.name }}
+                </option>
+            </select>
+
+            <div *ngIf="checkoutForm.get('shippingAddress.state')?.invalid && (checkoutForm.get('shippingAddress.state')?.dirty || checkoutForm.get('shippingAddress.state')?.touched)" class="alert alert-danger mt-1">
+                <div *ngIf="checkoutForm.get('shippingAddress.state')?.errors?.['required']">
+                    State is required
+                </div>
+            </div>
+
+        </div>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-md-2"> <label>Zip Code</label></div>
+    <div class="col-md-9">
+        <div class="input-space">
+            <input formControlName="zipCode" type="text">
+
+            <div *ngIf="checkoutForm.get('shippingAddress.zipCode')?.invalid && (checkoutForm.get('shippingAddress.zipCode')?.dirty || checkoutForm.get('shippingAddress.zipCode')?.touched)" class="alert alert-danger mt-1">
+                <div *ngIf="checkoutForm.get('shippingAddress.zipCode')?.errors?.['required'] || checkoutForm.get('shippingAddress.zipCode')?.errors?.['notOnlyWhitespace']">
+                    Zip code is required
+                </div>
+                <div *ngIf="checkoutForm.get('shippingAddress.zipCode')?.errors?.['minlength']">
+                    Zip code must be at least 2 characters long
+                </div>
+            </div>
+
+        </div>
+    </div>
+  </div>
+</div>
+
+  <div>
+<!-- Add check box to copy shipping to billing -->
+    <div class="input-space">
+      <label class="au-checkbox">
+          <input type="checkbox" (change)="copyShippingAddressToBillingAddress($event)">
+          <span class="au-checkmark"></span>Billing Address same as Shipping Address
+      </label>
+    </div>
+
+    <div formGroupName="billingAddress" class="form-area">
+      <h3>Billing Address</h3>
+      <div class="row">
+        <div class="col-md-2"> <label>Country</label></div>
+        <div class="col-md-9">
+            <div class="input-space">
+                <select formControlName="country" (change)="getStates('billingAddress')">
+                    <option *ngFor="let country of countries" [ngValue]="country">
+                        {{ country.name }}
+                    </option>
+                </select>
+
+                <div *ngIf="checkoutForm.get('billingAddress.country')?.invalid && (checkoutForm.get('billingAddress.country')?.dirty || checkoutForm.get('billingAddress.country')?.touched)" class="alert alert-danger mt-1">
+                    <div *ngIf="checkoutForm.get('billingAddress.country')?.errors?.['required']">
+                        Country is required
+                    </div>
+                </div>
+
+            </div>
+        </div>
+      </div>
+
+      <div>
+        <label for="name">Street</label>
+        <input
+          id="name" formControlName="name" type="text"
+          [ngStyle]="{'border-color': checkoutForm.get('customer.name')?.invalid && checkoutForm.get('customer.name')?.touched ? 'red' : ''}"
+          />
+        <div *ngIf="checkoutForm.get('customer.name')?.invalid && checkoutForm.get('customer.name')?.touched">
+          <small *ngIf="checkoutForm.get('customer.name')?.errors?.['required']">Name is
+            required.</small>
+          <small *ngIf="checkoutForm.get('customer.name')?.errors?.['minlength']">Name must
+            be at least 3 characters.</small>
+        </div>
+      </div>
+
+      <div>
+        <label for="name">City</label>
+        <input
+          id="name" formControlName="name" type="text"
+          [ngStyle]="{'border-color': checkoutForm.get('customer.name')?.invalid && checkoutForm.get('customer.name')?.touched ? 'red' : ''}"
+          />
+        <div *ngIf="checkoutForm.get('customer.name')?.invalid && checkoutForm.get('customer.name')?.touched">
+          <small *ngIf="checkoutForm.get('customer.name')?.errors?.['required']">Name is
+            required.</small>
+          <small *ngIf="checkoutForm.get('customer.name')?.errors?.['minlength']">Name must
+            be at least 3 characters.</small>
+        </div>
+      </div>
+
+
+
+      <div class="row">
+        <div class="col-md-2"> <label>State</label></div>
+        <div class="col-md-9">
+            <div class="input-space">
+                <select formControlName="state">
+                    <option *ngFor="let state of shippingAddressStates" [ngValue]="state">
+                        {{ state.name }}
+                    </option>
+                </select>
+
+                <div *ngIf="checkoutForm.get('shippingAddress.state')?.invalid && (checkoutForm.get('shippingAddress.state')?.dirty || checkoutForm.get('shippingAddress.state')?.touched)" class="alert alert-danger mt-1">
+                    <div *ngIf="checkoutForm.get('shippingAddress.state')?.errors?.['required']">
+                        State is required
+                    </div>
+                </div>
+
+            </div>
+        </div>
+      </div>
+
+      <div>
+        <label for="name">Zip code</label>
+        <input
+          id="name" formControlName="name" type="text"
+          [ngStyle]="{'border-color': checkoutForm.get('customer.name')?.invalid && checkoutForm.get('customer.name')?.touched ? 'red' : ''}"
+          />
+        <div *ngIf="checkoutForm.get('customer.name')?.invalid && checkoutForm.get('customer.name')?.touched">
+          <small *ngIf="checkoutForm.get('customer.name')?.errors?.['required']">Name is
+            required.</small>
+          <small *ngIf="checkoutForm.get('customer.name')?.errors?.['minlength']">Name must
+            be at least 3 characters.</small>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <div formGroupName="creditCard" class="form-area">
+    <h3>Credit Card</h3>
+    <div class="row">
+      <div class="col-md-2"> <label>Card Type</label></div>
+      <div class="col-md-9">
+          <div class="input-space">
+              <select formControlName="cardType">
+                  <option>Visa</option>
+                  <option>Mastercard</option>
+              </select>
+
+              <div *ngIf="checkoutForm.get('creditCard.cardType')?.invalid && (checkoutForm.get('creditCard.cardType')?.dirty || checkoutForm.get('creditCard.cardType')?.touched)" class="alert alert-danger mt-1">
+                  <div *ngIf="checkoutForm.get('creditCard.cardType')?.errors?.['required']">
+                      Credit card type is required
+                  </div>
+              </div>
+
+          </div>
+      </div>
+  </div>
+    <div>
+      <label for="name">Name on card</label>
+      <input
+        id="name" formControlName="name" type="text"
+        [ngStyle]="{'border-color': checkoutForm.get('customer.name')?.invalid && checkoutForm.get('customer.name')?.touched ? 'red' : ''}"
+        />
+      <div *ngIf="checkoutForm.get('customer.name')?.invalid && checkoutForm.get('customer.name')?.touched">
+        <small *ngIf="checkoutForm.get('customer.name')?.errors?.['required']">Name is
+          required.</small>
+        <small *ngIf="checkoutForm.get('customer.name')?.errors?.['minlength']">Name must
+          be at least 3 characters.</small>
+      </div>
+    </div>
+
+    <div>
+      <label for="name">Card Number</label>
+      <input
+        id="name" formControlName="name" type="text"
+        [ngStyle]="{'border-color': checkoutForm.get('customer.name')?.invalid && checkoutForm.get('customer.name')?.touched ? 'red' : ''}"
+        />
+      <div *ngIf="checkoutForm.get('customer.name')?.invalid && checkoutForm.get('customer.name')?.touched">
+        <small *ngIf="checkoutForm.get('customer.name')?.errors?.['required']">Name is
+          required.</small>
+        <small *ngIf="checkoutForm.get('customer.name')?.errors?.['minlength']">Name must
+          be at least 3 characters.</small>
+      </div>
+    </div>
+
+    <div>
+      <label for="name">Security Code</label>
+      <input
+        id="name" formControlName="name" type="text"
+        [ngStyle]="{'border-color': checkoutForm.get('customer.name')?.invalid && checkoutForm.get('customer.name')?.touched ? 'red' : ''}"
+        />
+      <div *ngIf="checkoutForm.get('customer.name')?.invalid && checkoutForm.get('customer.name')?.touched">
+        <small *ngIf="checkoutForm.get('customer.name')?.errors?.['required']">Name is
+          required.</small>
+        <small *ngIf="checkoutForm.get('customer.name')?.errors?.['minlength']">Name must
+          be at least 3 characters.</small>
+      </div>
+    </div>
+
+
+  </div>
+
+  <div class="form-area">
+    <h3>Review Your Order</h3>
+    <p>Total Quantity: {{ totalQuantity }}</p>
+    <p>Shipping: FREE</p>
+    <p>Total Price: {{ totalPrice | currency: 'USD' }}</p>
+  </div>
+
+  <!-- <button type="submit" [disabled]="checkoutForm.invalid">Submit</button> -->
+  <button type="submit">Submit</button>
+</form>

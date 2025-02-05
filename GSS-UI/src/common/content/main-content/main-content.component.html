@@ -1,0 +1,41 @@
+<div class="w-4/5 bg-gray-300">
+  <div class="grid grid-cols-3 gap-4 p-4">
+    <div class="bg-gray-200 p-4 border-3 hover-outline text-center flex"
+      *ngFor="let item of items">
+      <div class="w-1/2">
+        <img *ngIf="item.imageUrl" [src]="item.imageUrl" alt="img_jpg"
+          class="top-0 left-0 w-full h-auto aspect-square object-cover mr-2 mt-2">
+      </div>
+      <div class="w-1/2">
+        <div class="mb-2">
+          <strong>Description:</strong> {{ item.desc }}
+        </div>
+        <div class="mb-2">
+          <strong>Image URL:</strong> {{ item.imageUrl }}
+        </div>
+        <div class="mb-2">
+          <strong>Name:</strong> {{ item.name }}
+        </div>
+        <div class="mb-2">
+          <strong>SKU:</strong> {{ item.sku }}
+        </div>
+        <div class="mb-2">
+          <strong>Unit Price:</strong> {{ item.unitPrice }}
+        </div>
+        <!-- <a href="#" class="text-blue-500 no-click" (click)="openDetailDialog()">show detail</a> -->
+        <span class="text-blue-500 cursor-pointer underline" (click)="openDetailDialog()">show detail</span>
+        <!-- <button class="text-blue-500 underline cursor-pointer" (click)="openDetailDialog()">show detail</button> -->
+      </div>
+    </div>
+  </div>
+  <div class="flex justify-center">
+    <mat-paginator
+      [length]="total"
+      [pageSize]="10"
+      [hidePageSize]="false"
+      [pageSizeOptions]="[10,20,50,100]"
+      [pageIndex]="page"
+      (page)="navigate($event)" aria-label="Select page" showFirstLastButtons>
+    </mat-paginator>
+  </div>
+</div>

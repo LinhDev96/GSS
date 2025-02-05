@@ -1,0 +1,234 @@
+
+<!-- <h2>Responsive Checkout Form</h2> -->
+<!-- <p>Resize the browser window to see the effect. When the screen is less than 800px wide, make the two columns stack on top of each other instead of next to each other.</p> -->
+<div class="row">
+  <div class="col-75">
+    <div class="container">
+      <form [formGroup]="checkoutFormGroup" action="/action_page.php">
+        <div class="row">
+          <div formGroupName="customer" class="col-50">
+            <h3>Customer Info</h3>
+            <label for="fname"><i class="fa fa-user"></i> First Name</label>
+            <input formControlName="firstName" type="text" id="fname" placeholder="John M. Doe"
+            [ngStyle]="{'border-color': checkoutFormGroup.get('customer.firstName')?.invalid && checkoutFormGroup.get('customer.firstName')?.touched ? 'red' : ''}"
+            >
+            <div *ngIf="checkoutFormGroup.get('customer.firstName')?.invalid && checkoutFormGroup.get('customer.firstName')?.touched">
+              <small *ngIf="checkoutFormGroup.get('customer.firstName')?.errors?.['required']">Name is
+                required.</small>
+              <small *ngIf="checkoutFormGroup.get('customer.firstName')?.errors?.['minlength']">Name must
+                be at least 3 characters.</small>
+            </div>
+
+            <label for="fname"><i class="fa fa-user"></i> Last Name</label>
+            <input formControlName="lastName" type="text" id="fname" placeholder="John M. Doe"
+            [ngStyle]="{'border-color': checkoutFormGroup.get('customer.lastName')?.invalid && checkoutFormGroup.get('customer.lastName')?.touched ? 'red' : ''}"
+            >
+            <div *ngIf="checkoutFormGroup.get('customer.lastName')?.invalid && checkoutFormGroup.get('customer.lastName')?.touched">
+              <small *ngIf="checkoutFormGroup.get('customer.lastName')?.errors?.['required']">Name is
+                required.</small>
+              <small *ngIf="checkoutFormGroup.get('customer.lastName')?.errors?.['minlength']">Name must
+                be at least 3 characters.</small>
+            </div>
+
+            <label for="email"><i class="fa fa-envelope"></i> Email</label>
+            <input formControlName="email" type="text" id="email" name="email" placeholder="john@example.com"
+            [ngStyle]="{'border-color': checkoutFormGroup.get('customer.email')?.invalid && checkoutFormGroup.get('customer.email')?.touched ? 'red' : ''}"
+            >
+            <div *ngIf="checkoutFormGroup.get('customer.email')?.invalid && checkoutFormGroup.get('customer.email')?.touched">
+              <small *ngIf="checkoutFormGroup.get('customer.email')?.errors?.['required']">Name is
+                required.</small>
+              <small *ngIf="checkoutFormGroup.get('customer.email')?.errors?.['minlength']">Name must
+                be at least 3 characters.</small>
+            </div>
+            <label for="adr"><i class="fa fa-address-card-o"></i> Address</label>
+            <input formControlName="address" type="text" id="adr" name="address" placeholder="542 W. 15th Street">
+            <!-- <label for="city"><i class="fa fa-institution"></i> City</label>
+            <input formControlName="city" type="text" id="city" name="city" placeholder="New York"> -->
+
+          </div>
+
+          <div formGroupName="billingAddress" class="col-50">
+            <h3>Billing Address</h3>
+            <label for="fname"><i class="fa fa-road"></i> Street</label>
+            <input formControlName="street" type="text" id="fname" placeholder="John M. Doe"
+            [ngStyle]="{'border-color': checkoutFormGroup.get('billingAddress.street')?.invalid && checkoutFormGroup.get('billingAddress.street')?.touched ? 'red' : ''}"
+            >
+            <div *ngIf="checkoutFormGroup.get('billingAddress.street')?.invalid && checkoutFormGroup.get('billingAddress.street')?.touched">
+              <small *ngIf="checkoutFormGroup.get('billingAddress.street')?.errors?.['required']">Name is
+                required.</small>
+              <small *ngIf="checkoutFormGroup.get('billingAddress.street')?.errors?.['minlength']">Name must
+                be at least 3 characters.</small>
+            </div>
+
+            <label for="fname"><i class="fa fa-building"></i> City</label>
+            <input formControlName="city" type="text" id="fname" placeholder="John M. Doe"
+            [ngStyle]="{'border-color': checkoutFormGroup.get('billingAddress.city')?.invalid && checkoutFormGroup.get('billingAddress.city')?.touched ? 'red' : ''}"
+            >
+            <div *ngIf="checkoutFormGroup.get('billingAddress.city')?.invalid && checkoutFormGroup.get('billingAddress.city')?.touched">
+              <small *ngIf="checkoutFormGroup.get('billingAddress.city')?.errors?.['required']">Name is
+                required.</small>
+              <small *ngIf="checkoutFormGroup.get('billingAddress.city')?.errors?.['minlength']">Name must
+                be at least 3 characters.</small>
+            </div>
+
+            <label for="fname"><i class="fa fa-map"></i> State</label>
+            <input formControlName="state" type="text" id="fname" placeholder="John M. Doe"
+            [ngStyle]="{'border-color': checkoutFormGroup.get('billingAddress.state')?.invalid && checkoutFormGroup.get('billingAddress.state')?.touched ? 'red' : ''}"
+            >
+            <div *ngIf="checkoutFormGroup.get('billingAddress.state')?.invalid && checkoutFormGroup.get('billingAddress.state')?.touched">
+              <small *ngIf="checkoutFormGroup.get('billingAddress.state')?.errors?.['required']">Name is
+                required.</small>
+              <small *ngIf="checkoutFormGroup.get('billingAddress.state')?.errors?.['minlength']">Name must
+                be at least 3 characters.</small>
+            </div>
+
+            <label for="fname"><i class="fa fa-globe"></i> Country</label>
+            <input formControlName="country" type="text" id="fname" placeholder="John M. Doe"
+            [ngStyle]="{'border-color': checkoutFormGroup.get('billingAddress.country')?.invalid && checkoutFormGroup.get('billingAddress.country')?.touched ? 'red' : ''}"
+            >
+            <div *ngIf="checkoutFormGroup.get('billingAddress.country')?.invalid && checkoutFormGroup.get('billingAddress.country')?.touched">
+              <small *ngIf="checkoutFormGroup.get('billingAddress.country')?.errors?.['required']">Name is
+                required.</small>
+              <small *ngIf="checkoutFormGroup.get('billingAddress.country')?.errors?.['minlength']">Name must
+                be at least 3 characters.</small>
+            </div>
+
+            <label for="fname"><i class="fa fa-flag"></i> Zipcode</label>
+            <input formControlName="zipCode" type="text" id="fname" placeholder="John M. Doe"
+            [ngStyle]="{'border-color': checkoutFormGroup.get('billingAddress.zipCode')?.invalid && checkoutFormGroup.get('billingAddress.zipCode')?.touched ? 'red' : ''}"
+            >
+            <div *ngIf="checkoutFormGroup.get('billingAddress.zipCode')?.invalid && checkoutFormGroup.get('billingAddress.zipCode')?.touched">
+              <small *ngIf="checkoutFormGroup.get('billingAddress.zipCode')?.errors?.['required']">Name is
+                required.</small>
+              <small *ngIf="checkoutFormGroup.get('billingAddress.zipCode')?.errors?.['minlength']">Name must
+                be at least 3 characters.</small>
+            </div>
+          </div>
+
+
+
+          <!-- <div class="col-50">
+            <h3>Payment</h3>
+            <label for="fname">Accepted Cards</label>
+            <div class="icon-container">
+              <i class="fa fa-cc-visa" style="color:navy;"></i>
+              <i class="fa fa-cc-amex" style="color:blue;"></i>
+              <i class="fa fa-cc-mastercard" style="color:red;"></i>
+              <i class="fa fa-cc-discover" style="color:orange;"></i>
+            </div>
+            <label for="cname">Name on Card</label>
+            <input type="text" id="cname" name="cardname" placeholder="John More Doe">
+            <label for="ccnum">Credit card number</label>
+            <input type="text" id="ccnum" name="cardnumber" placeholder="1111-2222-3333-4444">
+            <label for="expmonth">Exp Month</label>
+            <input type="text" id="expmonth" name="expmonth" placeholder="September">
+            <div class="row">
+              <div class="col-50">
+                <label for="expyear">Exp Year</label>
+                <input type="text" id="expyear" name="expyear" placeholder="2018">
+              </div>
+              <div class="col-50">
+                <label for="cvv">CVV</label>
+                <input type="text" id="cvv" name="cvv" placeholder="352">
+              </div>
+            </div>
+          </div> -->
+
+                          <!-- Stripe Elements Credit Card Section -->
+                        <div formGroupName="creditCard" class="form-area">
+
+                            <h3>Credit or Debit Card</h3>
+
+                            <div id="card-element">
+                                <!-- a Stripe element will be inserted here -->
+                            </div>
+
+                            <!-- Used to display form errors -->
+                            <div id="card-errors" class="displayError.textContent!=='': 'alert alert-danger mt-1'"></div>
+
+                        </div>
+
+        </div>
+        <label>
+          <input type="checkbox" (change)="copyShippingAddressToBillingAddress($event)"  name="sameadr"> Shipping address same as billing
+        </label>
+        <div formGroupName="shippingAddress" class="col-50">
+          <h3>Shipping Address</h3>
+          <label for="fname"><i class="fa fa-road"></i> Street</label>
+          <input formControlName="street" type="text" id="fname" placeholder="John M. Doe"
+          [ngStyle]="{'border-color': checkoutFormGroup.get('shippingAddress.street')?.invalid && checkoutFormGroup.get('shippingAddress.street')?.touched ? 'red' : ''}"
+          >
+          <div *ngIf="checkoutFormGroup.get('shippingAddress.street')?.invalid && checkoutFormGroup.get('shippingAddress.street')?.touched">
+            <small *ngIf="checkoutFormGroup.get('shippingAddress.street')?.errors?.['required']">Name is
+              required.</small>
+            <small *ngIf="checkoutFormGroup.get('shippingAddress.street')?.errors?.['minlength']">Name must
+              be at least 3 characters.</small>
+          </div>
+
+          <label for="fname"><i class="fa fa-building"></i> City</label>
+          <input formControlName="city" type="text" id="fname" placeholder="John M. Doe"
+          [ngStyle]="{'border-color': checkoutFormGroup.get('shippingAddress.city')?.invalid && checkoutFormGroup.get('billingAddress.city')?.touched ? 'red' : ''}"
+          >
+          <div *ngIf="checkoutFormGroup.get('shippingAddress.city')?.invalid && checkoutFormGroup.get('shippingAddress.city')?.touched">
+            <small *ngIf="checkoutFormGroup.get('shippingAddress.city')?.errors?.['required']">Name is
+              required.</small>
+            <small *ngIf="checkoutFormGroup.get('shippingAddress.city')?.errors?.['minlength']">Name must
+              be at least 3 characters.</small>
+          </div>
+
+          <label for="fname"><i class="fa fa-map"></i> State</label>
+          <input formControlName="state" type="text" id="fname" placeholder="John M. Doe"
+          [ngStyle]="{'border-color': checkoutFormGroup.get('billingAddress.state')?.invalid && checkoutFormGroup.get('shippingAddress.state')?.touched ? 'red' : ''}"
+          >
+          <div *ngIf="checkoutFormGroup.get('shippingAddress.state')?.invalid && checkoutFormGroup.get('shippingAddress.state')?.touched">
+            <small *ngIf="checkoutFormGroup.get('shippingAddress.state')?.errors?.['required']">Name is
+              required.</small>
+            <small *ngIf="checkoutFormGroup.get('shippingAddress.state')?.errors?.['minlength']">Name must
+              be at least 3 characters.</small>
+          </div>
+
+          <label for="fname"><i class="fa fa-globe"></i> Country</label>
+          <input formControlName="country" type="text" id="fname" placeholder="John M. Doe"
+          [ngStyle]="{'border-color': checkoutFormGroup.get('shippingAddress.country')?.invalid && checkoutFormGroup.get('shippingAddress.country')?.touched ? 'red' : ''}"
+          >
+          <div *ngIf="checkoutFormGroup.get('shippingAddress.country')?.invalid && checkoutFormGroup.get('shippingAddress.country')?.touched">
+            <small *ngIf="checkoutFormGroup.get('shippingAddress.country')?.errors?.['required']">Name is
+              required.</small>
+            <small *ngIf="checkoutFormGroup.get('shippingAddress.country')?.errors?.['minlength']">Name must
+              be at least 3 characters.</small>
+          </div>
+
+          <label for="fname"><i class="fa fa-flag"></i> Zipcode</label>
+          <input formControlName="zipCode" type="text" id="fname" placeholder="John M. Doe"
+          [ngStyle]="{'border-color': checkoutFormGroup.get('shippingAddress.zipCode')?.invalid && checkoutFormGroup.get('shippingAddress.zipCode')?.touched ? 'red' : ''}"
+          >
+          <div *ngIf="checkoutFormGroup.get('shippingAddress.zipCode')?.invalid && checkoutFormGroup.get('shippingAddress.zipCode')?.touched">
+            <small *ngIf="checkoutFormGroup.get('shippingAddress.zipCode')?.errors?.['required']">Name is
+              required.</small>
+            <small *ngIf="checkoutFormGroup.get('shippingAddress.zipCode')?.errors?.['minlength']">Name must
+              be at least 3 characters.</small>
+          </div>
+        </div>
+
+        <!-- <input type="submit" [disabled]="isDisabled" (click)="onSubmit()" value="Continue to checkout" class="btn"> -->
+        <div class="text-center">
+          <button type="submit" class="btn btn-info" (click)="onSubmit()" [disabled]="isDisabled || false">Purchase</button>
+        </div>
+      </form>
+    </div>
+  </div>
+  <div class="col-25">
+    <div class="container">
+      <h4>Cart <span class="price" style="color:black"><i class="fa fa-shopping-cart"></i> <b>{{cartItems.length}}</b></span></h4>
+      <div *ngFor="let item of cartItems; let i = index">
+        <p><a href="#">Product {{ i + 1 }}</a> <span class="price">${{ item.totalPrice }}</span></p>
+      </div>
+      <hr>
+      <p>Total <span class="price" style="color:black"><b>${{totalPrice}}</b></span></p>
+    </div>
+  </div>
+</div>
+
+<!-- </body> -->
+<!-- </html> -->
+

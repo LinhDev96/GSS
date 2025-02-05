@@ -1,0 +1,42 @@
+
+
+li {
+  .language-select {
+    border: 1px solid #ccc;
+    padding: 5px;
+    border-radius: 5px;
+    font-size: 16px;
+    background-color: #fff;
+    outline: none;
+    &:hover {
+      background-color: #b72121; /* Màu nền khi trỏ chuột vào */
+    }
+
+    &:focus {
+      border-color: #3b369a;
+      box-shadow: 0 0 0 0.2rem rgba(0,123,255,.25);
+    }
+  }
+}
+
+li {
+  .language-select.dark-mode {
+    border: 1px solid #ccc;
+    padding: 5px;
+    border-radius: 5px;
+    font-size: 16px;
+    background-color: #fff;
+    outline: none;
+    &:hover {
+      background-color: #b72121; /* Màu nền khi trỏ chuột vào */
+    }
+
+    &:focus {
+      border-color: #3b369a;
+      box-shadow: 0 0 0 0.2rem rgba(0,123,255,.25);
+    }
+  }
+}
+// .language-select {
+//   width: 200px; /* Điều chỉnh độ rộng theo ý muốn */
+// }

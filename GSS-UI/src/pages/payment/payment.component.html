@@ -1,0 +1,64 @@
+<form [formGroup]="paymentForm" (ngSubmit)="onSubmit()">
+  <div>
+    <label for="cardType">Card Type:</label>
+    <select formControlName="cardType" id="cardType">
+      <option value="">Select Card Type</option>
+      <option value="visa">Visa</option>
+      <option value="mastercard">MasterCard</option>
+      <option value="amex">American Express</option>
+    </select>
+    <div *ngIf="paymentForm.get('cardType')?.invalid && paymentForm.get('cardType')?.touched">
+      <small *ngIf="paymentForm.get('cardType')?.errors?.['required']">Card type is required.</small>
+    </div>
+  </div>
+
+  <div>
+    <label for="nameOnCard">Name on Card:</label>
+    <input type="text" formControlName="nameOnCard" id="nameOnCard" />
+    <div *ngIf="paymentForm.get('nameOnCard')?.invalid && paymentForm.get('nameOnCard')?.touched">
+      <small *ngIf="paymentForm.get('nameOnCard')?.errors?.['required']">Name on card is required.</small>
+      <small *ngIf="paymentForm.get('nameOnCard')?.errors?.['pattern']">Invalid email format.</small>
+    </div>
+  </div>
+
+  <div>
+    <label for="cardNumber">Card Number:</label>
+    <input type="text" formControlName="cardNumber" id="cardNumber" />
+    <div *ngIf="paymentForm.get('cardNumber')?.invalid && paymentForm.get('cardNumber')?.touched">
+      <small *ngIf="paymentForm.get('cardNumber')?.errors?.['required']">Card number is required.</small>
+      <small *ngIf="paymentForm.get('cardNumber')?.errors?.['pattern']">Invalid card number format.</small>
+      <small *ngIf="paymentForm.get('cardNumber')?.errors?.['maxlength']">Invalid card number format.</small>
+    </div>
+  </div>
+
+  <div>
+    <label for="securityCode">Security Code:</label>
+    <input type="text" formControlName="securityCode" id="securityCode" />
+    <div *ngIf="paymentForm.get('securityCode')?.invalid && paymentForm.get('securityCode')?.touched">
+      <small *ngIf="paymentForm.get('securityCode')?.errors?.['required']">Security code is required.</small>
+      <small *ngIf="paymentForm.get('securityCode')?.errors?.['pattern']">Invalid security code format.</small>
+    </div>
+  </div>
+
+  <div>
+    <label for="expirationMonth">Expiration Month:</label>
+    <select formControlName="expirationMonth" id="expirationMonth">
+      <option *ngFor="let month of months" [value]="month.value">{{ month.viewValue }}</option>
+    </select>
+    <div *ngIf="paymentForm.get('expirationMonth')?.invalid && paymentForm.get('expirationMonth')?.touched">
+      <small *ngIf="paymentForm.get('expirationMonth')?.errors?.['required']">Expiration month is required.</small>
+    </div>
+  </div>
+
+  <div>
+    <label for="expirationYear">Expiration Year:</label>
+    <select formControlName="expirationYear" id="expirationYear">
+      <option *ngFor="let year of years" [value]="year">{{ year }}</option>
+    </select>
+    <div *ngIf="paymentForm.get('expirationYear')?.invalid && paymentForm.get('expirationYear')?.touched">
+      <small *ngIf="paymentForm.get('expirationYear')?.errors?.['required']">Expiration year is required.</small>
+    </div>
+  </div>
+
+  <button type="submit" [disabled]="paymentForm.invalid">Submit</button>
+</form>

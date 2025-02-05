@@ -1,0 +1,186 @@
+<!-- <div class="min-h-screen flex"> -->
+  <!-- <div class="parent-div w-1/5 bg-gray-200">Left Div (1/5)
+    <div
+      class="moving-div rounded-md h-[300px] top-40 left-2 w-full border border-black p-2">
+      <div
+        class="text-2xl font-bold text-center h-1/8 p-3 italic text-white bg-gradient-diagonal">
+        Bạn tìm kiếm thứ gì ?
+      </div>
+
+      <div class="flex relative inline-block text-left">
+        <div>
+          <button type="button"
+            class="inline-flex justify-center w-full rounded-md border border-gray-300 shadow-sm px-4 py-2 bg-white text-sm font-medium text-gray-700 hover:bg-gray-50 focus:outline-none"
+            (click)="toggleDropdown()">
+            Categories
+            <svg class="-mr-1 ml-2 h-5 w-5" xmlns="http://www.w3.org/2000/svg"
+              viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
+              <path fill-rule="evenodd"
+                d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z"
+                clip-rule="evenodd" />
+            </svg>
+          </button>
+        </div>
+
+        <div *ngIf="isOpen"
+          class="origin-top-right absolute right-0 mt-2 w-56 rounded-md shadow-lg bg-white ring-1 ring-black ring-opacity-5">
+          <div class="py-1" role="menu" aria-orientation="vertical"
+            aria-labelledby="options-menu">
+            <div class="px-4 py-2 text-sm text-gray-700"
+              *ngFor="let category of categories">
+              <div (click)="toggleSubmenu(category)"
+                class="cursor-pointer flex justify-between items-center">
+                {{ category.name }}
+                <svg class="h-5 w-5" xmlns="http://www.w3.org/2000/svg"
+                  viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
+                  <path fill-rule="evenodd"
+                    d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z"
+                    clip-rule="evenodd" />
+                </svg>
+              </div>
+              <div *ngIf="category.isOpen" class="pl-4">
+                <div *ngFor="let subcategory of category.subcategories"
+                  class="py-1">
+                  {{ subcategory }}
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div> -->
+  <!-- !(hasOutletComponent$ | async) -->
+  <div *ngIf="!isSpecificComponentActive" class=" bg-gray-300">
+    <div class="bg-white h-15">
+      <div class="flex space-x-4 p-1 bg-gray-100  items-center justify-center">
+        <div>
+          <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16"
+            fill="currentColor" class="bi bi-filter-left" viewBox="0 0 16 16">
+            <path
+              d="M2 10.5a.5.5 0 0 1 .5-.5h3a.5.5 0 0 1 0 1h-3a.5.5 0 0 1-.5-.5m0-3a.5.5 0 0 1 .5-.5h7a.5.5 0 0 1 0 1h-7a.5.5 0 0 1-.5-.5m0-3a.5.5 0 0 1 .5-.5h11a.5.5 0 0 1 0 1h-11a.5.5 0 0 1-.5-.5" />
+          </svg>
+        </div>
+
+        <div class="relative dropdown">
+          <button (click)="toggleTimeDropdown()"
+            class="flex items-center px-4 py-2 bg-white border rounded shadow filter-button">
+            <span class="mr-2">
+              <i class="ti-alarm-clock"></i>
+              <i class="bi bi-caret-down mt-2"></i>
+            </span>
+          </button>
+          <div
+            class="dropdown-content absolute w-48 bg-white border rounded shadow">
+            <a class="block px-4 py-2 hover:bg-gray-200 cursor-pointer"
+              (click)="setTimeFilter('asc')">Cũ nhất</a>
+            <a class="block px-4 py-2 hover:bg-gray-200 cursor-pointer"
+              (click)="setTimeFilter('desc')">Mới nhất</a>
+            <a class="block px-4 py-2 hover:bg-gray-200 cursor-pointer"
+              (click)="setTimeFilter('')">Bất kỳ</a>
+          </div>
+        </div>
+
+        <button
+          class="p-1 bg-white border rounded shadow bestseller-button filter-button">Bestseller</button>
+        <button class="p-1 bg-white border rounded shadow filter-button"
+          (click)="setNameOrder()">
+          <i
+            [ngClass]="{'fa-arrow-up-a-z fa-sharp': isDesc, 'fa-arrow-down-a-z': !isDesc}"
+            class="fa-solid fa-lg"></i>
+        </button>
+
+        <div class="relative dropdown">
+          <button (click)="togglePriceDropdown()"
+            class="flex items-center px-4 py-2 bg-white border rounded shadow filter-button">
+            <span class="mr-2">Giá</span>
+            <i class="bi bi-caret-down mt-2"></i>
+          </button>
+          <div
+            class="dropdown-content absolute w-48 bg-white border rounded shadow">
+            <a class="block px-4 py-2 hover:bg-gray-200 cursor-pointer"
+              (click)="setPriceFilter('asc')">Tăng Dần</a>
+            <a class="block px-4 py-2 hover:bg-gray-200 cursor-pointer"
+              (click)="setPriceFilter('desc')">Giảm Dần</a>
+          </div>
+        </div>
+
+        <div class="search-container">
+          <input type="text" class="search-input" placeholder="Search English">
+          <button class="language-button">English</button>
+          <!-- Nút chọn ngôn ngữ -->
+          <!-- <button class="search-button">Tiếng Việt</button> Nút chọn ngôn ngữ -->
+
+        </div>
+        <div class="relative">
+          <button class="relative search-button rounded-full w-full h-full"><i
+              class="fa fa-search text-3xl"></i></button>
+        </div>
+
+      </div>
+    </div>
+    <div class="grid grid-cols-3 gap-2 p-2">
+      <div class="bg-gray-200 p-4 border-3 hover-outline text-center flex"
+        *ngFor="let item of items">
+        <div class="w-1/2">
+          <img *ngIf="item.imageUrl" [src]="item.imageUrl" alt="img_jpg"
+            class="top-0 left-0 w-full h-auto aspect-square object-cover mr-2 mt-2">
+        </div>
+        <div class="w-1/2">
+          <div class="mb-2">
+            <strong>Description:</strong> {{ item.desc }}
+          </div>
+          <div class="mb-2">
+            <strong>Image URL:</strong> {{ item.imageUrl }}
+          </div>
+          <div class="mb-2">
+            <strong>Name:</strong> {{ item.name }}
+          </div>
+          <div class="mb-2">
+            <strong>SKU:</strong> {{ item.sku }}
+          </div>
+          <div class="mb-2">
+            <strong>Category:</strong> {{ item.category }}
+          </div>
+          <div class="mb-2">
+            <strong>Unit Price:</strong> {{ item.unitPrice }}
+          </div>
+          <!-- <a href="#" class="text-blue-500 no-click" (click)="openDetailDialog()">show detail</a> -->
+          <span class="text-blue-500 cursor-pointer underline"
+            (click)="openDetailDialog(item)">show detail</span>
+          <!-- <button class="text-blue-500 underline cursor-pointer" (click)="openDetailDialog()">show detail</button> -->
+        </div>
+      </div>
+    </div>
+    <div class="flex justify-center">
+      <mat-paginator
+        [length]="total"
+        [pageSize]="10"
+        [hidePageSize]="false"
+        [pageSizeOptions]="[10,20,50,100]"
+        [pageIndex]="page"
+        (page)="navigate($event)" aria-label="Select page" showFirstLastButtons>
+      </mat-paginator>
+    </div>
+  </div>
+  <!-- <router-outlet></router-outlet> -->
+
+  <div id="fixedDiv"
+    class="fixed bottom-1 right-2 w-30 h-30 bg-blue-200 border border-black p-2 ">
+    <div class="w-full">
+      Tôi di chuyển theo màn hình!
+    </div>
+    <div class="w-full flex">
+      <div class="bottom-5 right-5">
+        <i
+          class="fab fa-facebook-messenger text-blue-600 text-3xl cursor-pointer animate-bounce"></i>
+      </div>
+      <a href="https://zalo.me/yourzaloid" target="_blank"
+        class="text-blue-500 text-3xl cursor-pointer">
+        <img src="assets/logo/logo-zalo.jpg" class="h-6 w-6">
+      </a>
+    </div>
+
+  </div>
+<!-- </div> -->

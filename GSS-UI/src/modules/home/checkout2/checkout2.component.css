@@ -1,0 +1,214 @@
+body {
+  font-family: Arial;
+  font-size: 17px;
+  padding: 8px;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+.row {
+  display: -ms-flexbox; /* IE10 */
+  display: flex;
+  -ms-flex-wrap: wrap; /* IE10 */
+  flex-wrap: wrap;
+  margin: 0 -16px;
+}
+
+.col-25 {
+  -ms-flex: 25%; /* IE10 */
+  flex: 25%;
+}
+
+.col-50 {
+  -ms-flex: 50%; /* IE10 */
+  flex: 50%;
+}
+
+.col-75 {
+  -ms-flex: 75%; /* IE10 */
+  flex: 75%;
+}
+
+.col-25,
+.col-50,
+.col-75 {
+  padding: 0 16px;
+}
+
+.container {
+  background-color: #f2f2f2;
+  padding: 5px 20px 15px 20px;
+  border: 1px solid lightgrey;
+  border-radius: 3px;
+}
+
+input[type=text] {
+  width: 100%;
+  margin-bottom: 20px;
+  padding: 12px;
+  border: 1px solid #ccc;
+  border-radius: 3px;
+}
+
+label {
+  margin-bottom: 10px;
+  display: block;
+}
+
+.icon-container {
+  margin-bottom: 20px;
+  padding: 7px 0;
+  font-size: 24px;
+}
+
+.btn {
+  background-color: #04AA6D;
+  color: white;
+  padding: 12px;
+  margin: 10px 0;
+  border: none;
+  width: 100%;
+  border-radius: 3px;
+  cursor: pointer;
+  font-size: 17px;
+}
+
+.btn:hover {
+  background-color: #45a049;
+}
+
+a {
+  color: #2196F3;
+}
+
+hr {
+  border: 1px solid lightgrey;
+}
+
+span.price {
+  float: right;
+  color: grey;
+}
+
+/* Responsive layout - when the screen is less than 800px wide, make the two columns stack on top of each other instead of next to each other (also change the direction - make the "cart" column go on top) */
+@media (max-width: 800px) {
+  .row {
+    flex-direction: column-reverse;
+  }
+  .col-25 {
+    margin-bottom: 20px;
+  }
+}
+
+
+#card-element {
+  border: 1px solid #ced4da;
+  border-radius: 5px;
+  padding: 10px;
+  background-color: #f8f9fa;
+  transition: box-shadow 0.3s;
+}
+
+#card-element:focus {
+  box-shadow: 0 0 5px rgba(0, 123, 255, 0.5);
+  border-color: #80bdff;
+}
+
+#card-errors {
+  color: #e3342f;
+  margin-top: 8px;
+  font-size: 14px;
+}
+
+
+
+
+
+body {
+  font-family: Arial, sans-serif;
+  background-color: #f9f9f9;
+  padding: 20px;
+}
+
+form {
+  max-width: 600px;
+  margin: auto;
+  background-color: #fff;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+label {
+  font-size: 14px;
+  color: #333;
+  display: block;
+  margin-bottom: 5px;
+}
+
+input[type="text"],
+input[type="email"] {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 15px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  font-size: 16px;
+}
+
+input[type="text"]:focus,
+input[type="email"]:focus {
+  border-color: #6b46c1;
+  outline: none;
+}
+
+.invalid {
+  border-color: red;
+}
+
+small {
+  color: red;
+  font-size: 12px;
+}
+
+/* Button Styling */
+button {
+  width: 100%;
+  background-color: #6b46c1;
+  color: white;
+  padding: 10px;
+  font-size: 16px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+button:disabled {
+  background-color: #ccc;
+  cursor: not-allowed;
+}
+
+button:hover {
+  background-color: #45a049;
+  /* Màu khi hover */
+}
+
+button:active {
+  transform: translateY(2px);
+  /* Hiệu ứng chìm khi nhấn */
+  background-color: #3e8e41;
+  /* Màu khi nhấn */
+}
+
+/* Form Group Styling */
+div {
+  margin-bottom: 15px;
+}
+
+/* Error Messages */
+small {
+  display: block;
+  margin-top: 5px;
+}

@@ -1,0 +1,48 @@
+/* Định dạng tổng thể */
+.container {
+  font-family: Arial, sans-serif;
+  text-align: center;
+  margin-top: 20px;
+}
+
+/* Định dạng cho thông báo chào mừng */
+.welcome-message {
+  background-color: #f0f8ff; /* màu nền xanh nhạt */
+  color: #2c3e50; /* màu chữ xám đậm */
+  font-size: 1.2em;
+  font-weight: bold;
+  padding: 10px;
+  border-radius: 5px;
+  margin-bottom: 10px;
+}
+
+/* Định dạng cho các nút chung */
+button {
+  padding: 10px 20px;
+  font-size: 1em;
+  cursor: pointer;
+  border: none;
+  border-radius: 5px;
+  transition: background-color 0.3s ease;
+  margin: 5px;
+}
+
+/* Định dạng cho nút đăng nhập */
+.login-button {
+  background-color: #3498db; /* màu nền xanh dương */
+  color: white;
+}
+
+.login-button:hover {
+  background-color: #2980b9; /* đổi màu khi hover */
+}
+
+/* Định dạng cho nút đăng xuất */
+.logout-button {
+  background-color: #e74c3c; /* màu nền đỏ */
+  color: white;
+}
+
+.logout-button:hover {
+  background-color: #c0392b; /* đổi màu khi hover */
+}

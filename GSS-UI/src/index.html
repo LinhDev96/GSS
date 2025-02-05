@@ -1,0 +1,97 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>GearSculptorStudio</title>
+  <base href="/">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="icon" type="image/x-icon" href="./assets/images/favicon_gearstudio.png">
+  <link href="https://stackpath.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=Poppins:200i,300,300i,400,400i,500,500i,600,600i,700,700i,800,800i,900,900i&display=swap" rel="stylesheet">
+
+  <!-- StyleSheet -->
+
+  <!-- Bootstrap -->
+  <link rel="stylesheet" href="assets/css/bootstrap.css">
+  <!-- Magnific Popup -->
+    <link rel="stylesheet" href="assets/css/magnific-popup.min.css">
+  <!-- Font Awesome -->
+    <link rel="stylesheet" href="assets/css/font-awesome.css">
+  <!-- Fancybox -->
+  <link rel="stylesheet" href="assets/css/jquery.fancybox.min.css">
+  <!-- Themify Icons -->
+    <link rel="stylesheet" href="assets/css/themify-icons.css">
+  <!-- Nice Select CSS -->
+    <link rel="stylesheet" href="assets/css/niceselect.css">
+  <!-- Animate CSS -->
+    <link rel="stylesheet" href="assets/css/animate.css">
+  <!-- Flex Slider CSS -->
+    <link rel="stylesheet" href="assets/css/flex-slider.min.css">
+  <!-- Owl Carousel -->
+    <link rel="stylesheet" href="assets/css/owl-carousel.css">
+  <!-- Slicknav -->
+    <link rel="stylesheet" href="assets/css/slicknav.min.css">
+
+  <!-- Eshop StyleSheet -->
+  <link rel="stylesheet" href="assets/css/reset.css">
+  <link rel="stylesheet" href="assets/css/style.css">
+    <link rel="stylesheet" href="assets/css/responsive.css">
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <script src="https://js.stripe.com/v3" async></script>
+</head>
+<body class="mat-typography">
+  <app-root></app-root>
+  <!-- update index.html will not trigger auto-rebuild code -->
+  <script>
+    // window.addEventListener('scroll', () => {
+    //   const fixedDiv = document.getElementById('fixedDiv');
+    //   const scrollPosition = window.scrollY;
+    //   fixedDiv.style.top = `${scrollPosition + 20}px`; // Điều chỉnh vị trí top với độ trễ
+    // });
+
+    // window.addEventListener('scroll', () => {
+    //   const fixedDiv = document.getElementById('fixedDiv');
+    //   const outerDiv = document.getElementById('outerDiv');
+    //   const scrollPosition = window.scrollY;
+    //   const outerDivBottom = outerDiv.offsetTop + outerDiv.offsetHeight;
+    //   const fixedDivHeight = fixedDiv.offsetHeight;
+
+    //   if (scrollPosition + fixedDivHeight + 20 > outerDivBottom) {
+    //     fixedDiv.style.top = `${outerDivBottom - fixedDivHeight}px`;
+    //   } else {
+    //     fixedDiv.style.top = `${scrollPosition + 20}px`;
+    //   }
+    // });
+
+
+
+    let lastScrollTop = 0;
+    let timeout;
+
+    window.addEventListener('scroll', function() {
+      clearTimeout(timeout);
+      timeout = setTimeout(() => {
+        const currentScrollTop = window.pageYOffset;
+        const movingDiv = document.querySelector('.moving-div');
+        const parentDiv = document.querySelector('.parent-div');
+
+        if (movingDiv && parentDiv) {
+          const parentRect = parentDiv.getBoundingClientRect();
+          const movingRect = movingDiv.getBoundingClientRect();
+
+          let newTop = currentScrollTop;
+
+          if (newTop + movingRect.height > parentRect.height) {
+            newTop = parentRect.height - movingRect.height;
+          }
+
+          movingDiv.style.transform = `translateY(${newTop}px)`;
+        }
+
+        lastScrollTop = currentScrollTop;
+      }, 0.5); // Độ trễ 1 giây
+    });
+  </script>
+</body>
+</html>

@@ -1,0 +1,11 @@
+.nav-links {
+  display: flex;
+  list-style: none;
+  padding: 0;
+}
+
+.header-container {
+  background-color: #0e0f169c;
+  border-bottom: 1px solid #E0E0E0;
+  /* padding: 10px 0; */
+}
